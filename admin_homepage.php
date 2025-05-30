@@ -4,13 +4,12 @@ require_once('classes/database.php');
 $con = new database();
 
 if (!isset($_SESSION['user_id'])) {
-    // Check the user type
    
    header('Location: index.php');
 
     exit();
 
-} elseif ($_SESSION['user_type'] === 1) {
+} elseif ($_SESSION['user_type'] === 0) {
         // Admin user, redirect to admin homepage
         header('Location: homepage.php');
         exit();

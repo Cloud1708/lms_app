@@ -6,6 +6,11 @@ require_once('classes/database.php');
 $con = new database();
  
 $sweetAlertConfig = ""; //Initialize SweetAlert script variable
+
+if (empty($_SESSION['user_id'])) {
+   header('Location: index.php');
+    exit();
+} 
  
 if (isset($_POST['add'])) {
  
@@ -53,6 +58,7 @@ if (isset($_POST['add'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.css">
   <link rel="stylesheet" href="./package/dist/sweetalert2.css">
+  <link rel="stylesheet" href="./poppers/css/bootstrap-icons.css">
   <title>Authors</title>
 </head>
 <body>
@@ -134,7 +140,13 @@ if (isset($_POST['add'])) {
   </form>
 
 </div>
+<script src="poppers/js/popper.min.js"></script>
 <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+<script>
+function logout() {
+    window.location.href = 'logout.php';
+}
+</script>
 
 </body>
 </html>

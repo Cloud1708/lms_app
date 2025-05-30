@@ -6,6 +6,11 @@ require_once('classes/database.php');
 $con = new database();
  
 $sweetAlertConfig = ""; //Initialize SweetAlert script variable
+
+if (empty($_SESSION['user_id'])) {
+   header('Location: index.php');
+    exit();
+} 
  
 if (isset($_POST['adds_genres'])) {
  
